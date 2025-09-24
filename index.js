@@ -3,10 +3,17 @@ const dotenv = require('dotenv');
 const sequelize = require('./config/db');
 const User = require('./models/User');
 const authRoutes = require('./routes/auth');
+const cors = require('cors');
 
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
+
+app.use(cors({
+  origin: 'http://localhost:4200', // Cambia esto según tu configuración de frontend
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 
 app.use(express.json());
 
