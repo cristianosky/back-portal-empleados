@@ -5,6 +5,7 @@ const User = require('./models/User');
 const authRoutes = require('./routes/auth');
 const cors = require('cors');
 const attendanceRoutes = require('./routes/attendance');
+const vacationRoutes = require('./routes/vacationRoutes');
 
 dotenv.config();
 const app = express();
@@ -22,6 +23,7 @@ sequelize.sync({ alter: true }).then(() => {
 // Rutas
 app.use('/api/auth', authRoutes);
 app.use('/api/attendance', attendanceRoutes);
+app.use('/api/vacations', vacationRoutes);
 
 app.listen(port, () => {
   console.log(`Servidor corriendo en http://localhost:${port}`);

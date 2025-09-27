@@ -22,7 +22,16 @@ const User = sequelize.define('User', {
   role: {
     type: DataTypes.ENUM('user', 'admin'),
     defaultValue: 'user'
-  }
+  },
+  startDate: { 
+    type: DataTypes.DATEONLY, 
+    field: 'createdAt'
+  } 
 });
+
+User.associate = models => {
+  User.hasMany(models.Attendance, { foreignKey: 'userId' });
+  User.hasMany(models.Vacation, { foreignKey: 'userId' });
+};
 
 module.exports = User;
