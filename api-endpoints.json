@@ -1,0 +1,71 @@
+[
+  {
+    "method": "POST",
+    "path": "/api/auth/register",
+    "file": "C:\\Users\\crist\\OneDrive\\Escritorio\\Proyectos Nuevos\\back-portal-empleado\\routes\\auth.js"
+  },
+  {
+    "method": "POST",
+    "path": "/api/auth/login",
+    "file": "C:\\Users\\crist\\OneDrive\\Escritorio\\Proyectos Nuevos\\back-portal-empleado\\routes\\auth.js"
+  },
+  {
+    "method": "POST",
+    "path": "/api/attendance/checkin",
+    "file": "C:\\Users\\crist\\OneDrive\\Escritorio\\Proyectos Nuevos\\back-portal-empleado\\routes\\attendance.js"
+  },
+  {
+    "method": "POST",
+    "path": "/api/attendance/checkout",
+    "file": "C:\\Users\\crist\\OneDrive\\Escritorio\\Proyectos Nuevos\\back-portal-empleado\\routes\\attendance.js"
+  },
+  {
+    "method": "GET",
+    "path": "/api/attendance/today",
+    "file": "C:\\Users\\crist\\OneDrive\\Escritorio\\Proyectos Nuevos\\back-portal-empleado\\routes\\attendance.js"
+  },
+  {
+    "method": "GET",
+    "path": "/api/attendance/monthly",
+    "file": "C:\\Users\\crist\\OneDrive\\Escritorio\\Proyectos Nuevos\\back-portal-empleado\\routes\\attendance.js"
+  },
+  {
+    "method": "GET",
+    "path": "/api/vacations/balance",
+    "file": "C:\\Users\\crist\\OneDrive\\Escritorio\\Proyectos Nuevos\\back-portal-empleado\\routes\\vacationRoutes.js"
+  },
+  {
+    "method": "POST",
+    "path": "/api/vacations/request",
+    "file": "C:\\Users\\crist\\OneDrive\\Escritorio\\Proyectos Nuevos\\back-portal-empleado\\routes\\vacationRoutes.js"
+  },
+  {
+    "method": "GET",
+    "path": "/api/vacations/all",
+    "file": "C:\\Users\\crist\\OneDrive\\Escritorio\\Proyectos Nuevos\\back-portal-empleado\\routes\\vacationRoutes.js"
+  },
+  {
+    "method": "MOUNT",
+    "path": "/ruta",
+    "file": "./routes/foo",
+    "note": "módulo no encontrado desde C:\\Users\\crist\\OneDrive\\Escritorio\\Proyectos Nuevos\\back-portal-empleado\\scripts\\list-and-generate-endpoints.js"
+  },
+  {
+    "method": "MOUNT",
+    "path": "/ruta",
+    "file": "./routes/xx",
+    "note": "módulo no encontrado desde C:\\Users\\crist\\OneDrive\\Escritorio\\Proyectos Nuevos\\back-portal-empleado\\scripts\\list-and-generate-endpoints.js"
+  },
+  {
+    "method": "MOUNT",
+    "path": "/ruta",
+    "file": null,
+    "note": "módulo no encontrado desde C:\\Users\\crist\\OneDrive\\Escritorio\\Proyectos Nuevos\\back-portal-empleado\\scripts\\list-and-generate-endpoints.js"
+  },
+  {
+    "method": "MOUNT",
+    "path": "/x",
+    "file": "./routes/foo",
+    "note": "módulo no encontrado desde C:\\Users\\crist\\OneDrive\\Escritorio\\Proyectos Nuevos\\back-portal-empleado\\scripts\\list-and-generate-endpoints.js"
+  }
+]

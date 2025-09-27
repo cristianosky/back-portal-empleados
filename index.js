@@ -6,6 +6,8 @@ const authRoutes = require('./routes/auth');
 const cors = require('cors');
 const attendanceRoutes = require('./routes/attendance');
 const vacationRoutes = require('./routes/vacationRoutes');
+const path = require("path");
+
 
 dotenv.config();
 const app = express();
@@ -14,6 +16,10 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 
 app.use(express.json());
+// Servir welcome.html en la raíz
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "welcome.html"));
+});
 
 // Sincronizar DB
 sequelize.sync({ alter: true }).then(() => {

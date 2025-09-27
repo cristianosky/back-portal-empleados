@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Portal Empleados - API</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; background: #f9f9f9; }
+    h1, h2, h3 { color: #333; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 30px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background: #eee; }
+    code { background: #eee; padding: 2px 4px; border-radius: 4px; }
+    pre { background: #272822; color: #f8f8f2; padding: 10px; border-radius: 5px; overflow-x: auto; }
+  </style>
+</head>
+<body>
+  <h1>Bienvenido al API - Portal Empleados</h1>
+  <p>Este backend expone endpoints para manejar autenticación, asistencia y vacaciones de los empleados.</p>
+
+  <h2>📌 Autenticación</h2>
+  <table>
+    <tr><th>Método</th><th>Ruta</th><th>Descripción</th></tr>
+    <tr><td>POST</td><td><code>/api/auth/register</code></td><td>Registrar un nuevo empleado</td></tr>
+    <tr><td>POST</td><td><code>/api/auth/login</code></td><td>Iniciar sesión y obtener token JWT</td></tr>
+  </table>
+
+  <h3>Ejemplo (Register)</h3>
+  <pre>curl -X POST http://localhost:3000/api/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{"nombre":"Juan Pérez","email":"juan@empresa.com","password":"123456"}'</pre>
+
+  <pre>fetch("http://localhost:3000/api/auth/register", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ nombre: "Juan Pérez", email: "juan@empresa.com", password: "123456" })
+}).then(r => r.json()).then(console.log);</pre>
+
+  <h3>Ejemplo (Login)</h3>
+  <pre>curl -X POST http://localhost:3000/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"juan@empresa.com","password":"123456"}'</pre>
+
+  <pre>fetch("http://localhost:3000/api/auth/login", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ email: "juan@empresa.com", password: "123456" })
+}).then(r => r.json()).then(console.log);</pre>
+
+  <h2>🕒 Asistencia</h2>
+  <table>
+    <tr><th>Método</th><th>Ruta</th><th>Descripción</th></tr>
+    <tr><td>POST</td><td><code>/api/attendance/checkin</code></td><td>Marcar entrada del día</td></tr>
+    <tr><td>POST</td><td><code>/api/attendance/checkout</code></td><td>Marcar salida del día</td></tr>
+    <tr><td>GET</td><td><code>/api/attendance/today</code></td><td>Obtener asistencia de hoy</td></tr>
+    <tr><td>GET</td><td><code>/api/attendance/monthly</code></td><td>Obtener reporte de asistencia mensual</td></tr>
+  </table>
+
+  <h3>Ejemplo (Check-in)</h3>
+  <pre>curl -X POST http://localhost:3000/api/attendance/checkin \
+  -H "Authorization: Bearer TOKEN_AQUI"</pre>
+
+  <pre>fetch("http://localhost:3000/api/attendance/checkin", {
+  method: "POST",
+  headers: { "Authorization": "Bearer TOKEN_AQUI" }
+}).then(r => r.json()).then(console.log);</pre>
+
+  <h3>Ejemplo (Check-out)</h3>
+  <pre>curl -X POST http://localhost:3000/api/attendance/checkout \
+  -H "Authorization: Bearer TOKEN_AQUI"</pre>
+
+  <pre>fetch("http://localhost:3000/api/attendance/checkout", {
+  method: "POST",
+  headers: { "Authorization": "Bearer TOKEN_AQUI" }
+}).then(r => r.json()).then(console.log);</pre>
+
+  <h3>Ejemplo (Asistencia de hoy)</h3>
+  <pre>curl -X GET http://localhost:3000/api/attendance/today \
+  -H "Authorization: Bearer TOKEN_AQUI"</pre>
+
+  <pre>fetch("http://localhost:3000/api/attendance/today", {
+  headers: { "Authorization": "Bearer TOKEN_AQUI" }
+}).then(r => r.json()).then(console.log);</pre>
+
+  <h3>Ejemplo (Asistencia mensual)</h3>
+  <pre>curl -X GET http://localhost:3000/api/attendance/monthly \
+  -H "Authorization: Bearer TOKEN_AQUI"</pre>
+
+  <pre>fetch("http://localhost:3000/api/attendance/monthly", {
+  headers: { "Authorization": "Bearer TOKEN_AQUI" }
+}).then(r => r.json()).then(console.log);</pre>
+
+  <h2>🌴 Vacaciones</h2>
+  <table>
+    <tr><th>Método</th><th>Ruta</th><th>Descripción</th></tr>
+    <tr><td>GET</td><td><code>/api/vacations/balance</code></td><td>Consultar saldo de vacaciones</td></tr>
+    <tr><td>POST</td><td><code>/api/vacations/request</code></td><td>Solicitar vacaciones</td></tr>
+    <tr><td>GET</td><td><code>/api/vacations/all</code></td><td>Listar solicitudes de vacaciones</td></tr>
+  </table>
+
+  <h3>Ejemplo (Balance de vacaciones)</h3>
+  <pre>curl -X GET http://localhost:3000/api/vacations/balance \
+  -H "Authorization: Bearer TOKEN_AQUI"</pre>
+
+  <pre>fetch("http://localhost:3000/api/vacations/balance", {
+  headers: { "Authorization": "Bearer TOKEN_AQUI" }
+}).then(r => r.json()).then(console.log);</pre>
+
+  <h3>Ejemplo (Solicitar vacaciones)</h3>
+  <pre>curl -X POST http://localhost:3000/api/vacations/request \
+  -H "Authorization: Bearer TOKEN_AQUI" \
+  -H "Content-Type: application/json" \
+  -d '{"startDate":"2025-10-01","endDate":"2025-10-10"}'</pre>
+
+  <pre>fetch("http://localhost:3000/api/vacations/request", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer TOKEN_AQUI",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({ startDate: "2025-10-01", endDate: "2025-10-10" })
+}).then(r => r.json()).then(console.log);</pre>
+
+  <h3>Ejemplo (Listar todas las solicitudes)</h3>
+  <pre>curl -X GET http://localhost:3000/api/vacations/all \
+  -H "Authorization: Bearer TOKEN_AQUI"</pre>
+
+  <pre>fetch("http://localhost:3000/api/vacations/all", {
+  headers: { "Authorization": "Bearer TOKEN_AQUI" }
+}).then(r => r.json()).then(console.log);</pre>
+
+</body>
+</html>
