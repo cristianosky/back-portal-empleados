@@ -15,8 +15,9 @@
 </head>
 <body>
   <h1>Bienvenido al API - Portal Empleados</h1>
-  <p>Este backend expone endpoints para manejar autenticación, asistencia y vacaciones de los empleados.</p>
+  <p>Este backend expone endpoints para manejar autenticación, asistencia, vacaciones y perfil de los empleados.</p>
 
+  <!-- AUTENTICACIÓN -->
   <h2>📌 Autenticación</h2>
   <table>
     <tr><th>Método</th><th>Ruta</th><th>Descripción</th></tr>
@@ -46,6 +47,7 @@
   body: JSON.stringify({ email: "juan@empresa.com", password: "123456" })
 }).then(r => r.json()).then(console.log);</pre>
 
+  <!-- ASISTENCIA -->
   <h2>🕒 Asistencia</h2>
   <table>
     <tr><th>Método</th><th>Ruta</th><th>Descripción</th></tr>
@@ -89,6 +91,7 @@
   headers: { "Authorization": "Bearer TOKEN_AQUI" }
 }).then(r => r.json()).then(console.log);</pre>
 
+  <!-- VACACIONES -->
   <h2>🌴 Vacaciones</h2>
   <table>
     <tr><th>Método</th><th>Ruta</th><th>Descripción</th></tr>
@@ -126,6 +129,53 @@
 
   <pre>fetch("http://localhost:3000/api/vacations/all", {
   headers: { "Authorization": "Bearer TOKEN_AQUI" }
+}).then(r => r.json()).then(console.log);</pre>
+
+  <!-- PERFIL -->
+  <h2>👤 Perfil</h2>
+  <table>
+    <tr><th>Método</th><th>Ruta</th><th>Descripción</th></tr>
+    <tr><td>GET</td><td><code>/api/profile</code></td><td>Obtener información del perfil del usuario autenticado</td></tr>
+    <tr><td>PUT</td><td><code>/api/profile</code></td><td>Actualizar datos del perfil (nombre, apellido, email)</td></tr>
+    <tr><td>PUT</td><td><code>/api/profile/password</code></td><td>Cambiar la contraseña del usuario</td></tr>
+  </table>
+
+  <h3>Ejemplo (Obtener perfil)</h3>
+  <pre>curl -X GET http://localhost:3000/api/profile \
+  -H "Authorization: Bearer TOKEN_AQUI"</pre>
+
+  <pre>fetch("http://localhost:3000/api/profile", {
+  headers: { "Authorization": "Bearer TOKEN_AQUI" }
+}).then(r => r.json()).then(console.log);</pre>
+
+  <h3>Ejemplo (Actualizar perfil)</h3>
+  <pre>curl -X PUT http://localhost:3000/api/profile \
+  -H "Authorization: Bearer TOKEN_AQUI" \
+  -H "Content-Type: application/json" \
+  -d '{"nombre":"Pedro","apellido":"Gómez","email":"pedro@empresa.com"}'</pre>
+
+  <pre>fetch("http://localhost:3000/api/profile", {
+  method: "PUT",
+  headers: {
+    "Authorization": "Bearer TOKEN_AQUI",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({ nombre: "Pedro", apellido: "Gómez", email: "pedro@empresa.com" })
+}).then(r => r.json()).then(console.log);</pre>
+
+  <h3>Ejemplo (Cambiar contraseña)</h3>
+  <pre>curl -X PUT http://localhost:3000/api/profile/password \
+  -H "Authorization: Bearer TOKEN_AQUI" \
+  -H "Content-Type: application/json" \
+  -d '{"currentPassword":"123456","newPassword":"abcdef"}'</pre>
+
+  <pre>fetch("http://localhost:3000/api/profile/password", {
+  method: "PUT",
+  headers: {
+    "Authorization": "Bearer TOKEN_AQUI",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({ currentPassword: "123456", newPassword: "abcdef" })
 }).then(r => r.json()).then(console.log);</pre>
 
 </body>

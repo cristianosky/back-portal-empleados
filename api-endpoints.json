@@ -45,6 +45,21 @@
     "file": "C:\\Users\\crist\\OneDrive\\Escritorio\\Proyectos Nuevos\\back-portal-empleado\\routes\\vacationRoutes.js"
   },
   {
+    "method": "GET",
+    "path": "/api/profile",
+    "file": "C:\\Users\\crist\\OneDrive\\Escritorio\\Proyectos Nuevos\\back-portal-empleado\\routes\\profileRoutes.js"
+  },
+  {
+    "method": "PUT",
+    "path": "/api/profile",
+    "file": "C:\\Users\\crist\\OneDrive\\Escritorio\\Proyectos Nuevos\\back-portal-empleado\\routes\\profileRoutes.js"
+  },
+  {
+    "method": "PUT",
+    "path": "/api/profile/password",
+    "file": "C:\\Users\\crist\\OneDrive\\Escritorio\\Proyectos Nuevos\\back-portal-empleado\\routes\\profileRoutes.js"
+  },
+  {
     "method": "MOUNT",
     "path": "/ruta",
     "file": "./routes/foo",
@@ -67,5 +82,10 @@
     "path": "/x",
     "file": "./routes/foo",
     "note": "módulo no encontrado desde C:\\Users\\crist\\OneDrive\\Escritorio\\Proyectos Nuevos\\back-portal-empleado\\scripts\\list-and-generate-endpoints.js"
+  },
+  {
+    "method": "GET",
+    "path": "/",
+    "file": "C:\\Users\\crist\\OneDrive\\Escritorio\\Proyectos Nuevos\\back-portal-empleado\\index.js"
   }
 ]
