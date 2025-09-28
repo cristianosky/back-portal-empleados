@@ -2,6 +2,10 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
 
 const User = sequelize.define('User', {
+  photo : {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
   nombre: {
     type: DataTypes.STRING,
     allowNull: false
