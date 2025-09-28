@@ -31,10 +31,6 @@ const User = sequelize.define('User', {
     type: DataTypes.DATEONLY, 
     field: 'createdAt'
   } 
-}, {
-  defaultScope: {
-    attributes: { exclude: ['password', 'createdAt', 'updatedAt'] }
-  }
 });
 
 User.associate = models => {

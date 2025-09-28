@@ -33,7 +33,11 @@ router.put('/', authMiddleware, async (req, res) => {
     user.email = email || user.email;
 
     await user.save();
-
+    // eliminar password del objeto user antes de enviarlo en la respuesta
+    delete user.dataValues.password;
+    delete user.dataValues.startDate;
+    delete user.dataValues.updatedAt;
+    delete user.dataValues.createdAt;
     res.json({ message: 'Perfil actualizado correctamente', user });
   } catch (error) {
     res.status(500).json({ error: error.message });
